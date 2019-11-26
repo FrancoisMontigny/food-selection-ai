@@ -5,14 +5,7 @@ import java.util.ArrayList;
 public class TSP {
 	public static ArrayList<Aliment> destinationAliments = new ArrayList<Aliment>();
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	        // Create and add our cities
-	      /*
-	       * 
-	       * 
-	       * Question 4-a: To complete
-	       */
 			Aliment aliment1 = new Aliment("Fruit");
 			destinationAliments.add(aliment1);
 			Aliment aliment2 = new Aliment("Viande");
@@ -39,32 +32,16 @@ public class TSP {
 		destinationAliments.add(aliment444);
 
 	        // Initialize population
-	      /*
-	       * 
-	       * Question 4-b: To complete
-	       * 
-	       */
 			Population pop = new Population(50,true);
 			int initialscore = pop.getFittest().getScore();
 			System.out.println("initial score = "+initialscore);
 
 	        // Evolve population for 100 generations
-	      /*
-	       * 
-	       * Question 4-c: To complete
-	       * 
-	       * 
-	       */
 			for(int i = 0 ; i<100;i++) {
 				pop = GA.evolvePopulation(pop);
 			}
 			
 	        // Print final results
-		/*
-		 * 
-		 * Questions 4-d and 4-e: To Complete
-		 * 
-		 */
 	        int finalscore = pop.getFittest().getScore();
 	        System.out.println("final score = " +finalscore);
 	        System.out.println("difference = " + (initialscore-finalscore));

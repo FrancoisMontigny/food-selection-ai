@@ -1,7 +1,6 @@
 package Food;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class GA {
 	/* GA parameters */
@@ -17,11 +16,6 @@ public class GA {
         // Crossover population
         // Loop over the new population's size and create individuals from
         // Current population (select parents, crossover them, add child to population
-       /*
-        * 
-        * Question 1-a: To Complete 
-        * 
-        **/
         for (int i = 0; i < newPopulation.populationSize(); i++) {
             // Select parents Tournament 
             Repas parent1 = tournamentSelection(pop);
@@ -37,11 +31,6 @@ public class GA {
       
 
         // Mutate the new population a bit to add some new genetic material
-        /*
-         * 
-         * Question 1-b: Mutate new generation 
-         *
-         */
         for (int i = 0; i < newPopulation.populationSize(); i++) {
         	if(Math.random()<=mutationRate) {
         		mutate(newPopulation.getRepas(i));}
@@ -50,45 +39,20 @@ public class GA {
         return newPopulation;
     }
 
-    // Applies crossover to a set of parents and creates offspring : Davi's order 
+    // Applies crossover to a set of parents and creates offspring
     public static Repas crossover(Repas parent1, Repas parent2) {
         // Create new child repas
         Repas child = new Repas();
         //---------------------------------------------------------------------------------------------------------
-        // Crossover 2 parents using the Davi's Order
-       /*
-        * 
-        * Question 2 : To Complete: 
-        */
+        // Crossover 2 parents using the One Point crossover
         //----------------------------------------------------------------------------------------------------------
-        int startPos,endPos;
-        do {
-        startPos = (int) (Math.random() * parent1.repasSize());
-        endPos = (int) (Math.random() * parent1.repasSize());
-        } while (startPos>=endPos);
-        
-        for (int i = startPos ; i <= endPos; i++) {
+        int crossPos = (int) (Math.random() * parent1.repasSize());
+
+        for (int i = 0 ; i < crossPos; i++) {
         	child.setAliment(i, parent1.getAliment(i));
         }
-        
-        for (int i = 0 ; i < child.repasSize(); i++) {
-        	if(i< startPos || i> endPos) {
-        		if (!child.containsAliment(parent2.getAliment(i)))
-        			child.setAliment(i,parent2.getAliment(i));
-        		else {
-        			int j = 0;
-        			while(child.getAliment(i)==null) {
-        				j++;
-        				if(j>=child.repasSize()) {
-        					j=0; 
-        				}
-        			if (!child.containsAliment(parent2.getAliment(j))){
-        				child.setAliment(i,parent2.getAliment(j));
-        			}
-        		}
-        	}
-        	}
-        	
+        for (int i = crossPos ; i < child.repasSize(); i++) {
+            child.setAliment(i,parent2.getAliment(i));
         }
         return child;
     }
