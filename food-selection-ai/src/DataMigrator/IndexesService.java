@@ -50,4 +50,5 @@ public class IndexesService {
     public static final int CAFFEINE = 43;
     public static final int THEOBROMINE = 44;
     public static final int ALCOHOL = 45;
-    public static final int FOOD_GROUP = 46;}
+    public static final int FOOD_GROUP = 46;
+}
