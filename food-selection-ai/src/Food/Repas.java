@@ -76,16 +76,16 @@ public class Repas {
     // Gets the total score of the repas
     public int getScore(){
         if (score == 0) {
-            int totalCalorie=0;
-            int totalVitamineA=0;
+            int totalEnergy=0;
+            int totalProtein=0;
             // Loop through our repas's aliments
             for (int alimentIndex=0; alimentIndex < repasSize(); alimentIndex++) {
                 // Get aliment we're travelling from
                 Aliment aliment = getAliment(alimentIndex);
-                totalCalorie += aliment.getEnergy();
-                totalVitamineA += aliment.getProtein();
+                totalEnergy += aliment.getEnergy();
+                totalProtein += aliment.getProtein();
             }
-            double repasScore = Math.pow((totalCalorie- Main.goalValue.getEnergy()),2)+Math.pow((totalVitamineA- Main.goalValue.getProtein()),2);
+            double repasScore = Math.pow((totalEnergy- Main.goalValue.getEnergy()),2)+Math.pow((totalProtein- Main.goalValue.getProtein()),2);
             score = (int) Math.sqrt(repasScore);
         }
         return score;
@@ -103,9 +103,9 @@ public class Repas {
 
     @Override
     public String toString() {
-        String geneString = "-->";
+        String geneString = "Repas conseillé-->";
         for (int i = 0; i < repasSize(); i++) {
-            geneString += getAliment(i)+"|-->";
+            geneString += " --> " +  getAliment(i).getFoodGroup() + " : " + getAliment(i).getDescription();
         }
         return geneString;
     }
