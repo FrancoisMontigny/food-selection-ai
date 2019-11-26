@@ -50,14 +50,6 @@ public class Aliment {
     private Double alcohol;
     String foodGroup;
 
-    /*
-     *
-     * Models of a aliment
-     */
-
-    int Calorie;
-    int VitamineA;
-    String Name;
 
     public Aliment(String description, Double energy, Double protein, Double carbohydrate, Double sugarsTotal,
 				   Double fiberTotalDietary, Double fatTotal, Double fattyAcidsTotalSaturated,
@@ -119,77 +111,243 @@ public class Aliment {
         this.foodGroup = foodGroup;
     }
 
-    // Constructs a aliment with a name
-    public Aliment(String Name) {
-        this.Calorie = (int) (Math.random() * 200);
-        this.VitamineA = (int) (Math.random() * 200);
-        this.Name = Name;
+    public String getDescription() {
+        return description;
     }
 
-    // Gets aliment's calorie
-    public int getCalorie() {
-        return Calorie;
+    public Double getEnergy() {
+        return energy;
     }
 
-    // Gets aliment's Vitamine A
-    public int getVitamineA() {
-        return VitamineA;
+    public Double getProtein() {
+        return protein;
     }
 
-    // Gets aliment's name
-    public String getName() {
-        return this.Name;
+    public Double getCarbohydrate() {
+        return carbohydrate;
     }
 
-	@Override
+    public Double getSugarsTotal() {
+        return sugarsTotal;
+    }
+
+    public Double getFiberTotalDietary() {
+        return fiberTotalDietary;
+    }
+
+    public Double getFatTotal() {
+        return fatTotal;
+    }
+
+    public Double getFattyAcidsTotalSaturated() {
+        return fattyAcidsTotalSaturated;
+    }
+
+    public Double getFattyAcidsTotalMonounsaturated() {
+        return fattyAcidsTotalMonounsaturated;
+    }
+
+    public Double getFattyAcidsTotalPolyunsaturated() {
+        return fattyAcidsTotalPolyunsaturated;
+    }
+
+    public Double getCholesterol() {
+        return cholesterol;
+    }
+
+    public Double getRetinol() {
+        return retinol;
+    }
+
+    public Double getaVitaminMce() {
+        return aVitaminMce;
+    }
+
+    public Double getCaroteneAlpha() {
+        return caroteneAlpha;
+    }
+
+    public Double getCaroteneBeta() {
+        return caroteneBeta;
+    }
+
+    public Double getCryptoxanthinBeta() {
+        return cryptoxanthinBeta;
+    }
+
+    public Double getLycopene() {
+        return lycopene;
+    }
+
+    public Double getLuteinAndZeaxanthin() {
+        return luteinAndZeaxanthin;
+    }
+
+    public Double getThiamin() {
+        return thiamin;
+    }
+
+    public Double getRiboflavin() {
+        return riboflavin;
+    }
+
+    public Double getNiacin() {
+        return niacin;
+    }
+
+    public Double getB6Vitamin() {
+        return b6Vitamin;
+    }
+
+    public Double getFolicAcid() {
+        return folicAcid;
+    }
+
+    public Double getFolateFood() {
+        return folateFood;
+    }
+
+    public Double getFolateDfe() {
+        return folateDfe;
+    }
+
+    public Double getFolateTotal() {
+        return folateTotal;
+    }
+
+    public Double getCholineTotal() {
+        return cholineTotal;
+    }
+
+    public Double getB12Vitamin() {
+        return b12Vitamin;
+    }
+
+    public Double getB12VitaminAdded() {
+        return b12VitaminAdded;
+    }
+
+    public Double getcVitamin() {
+        return cVitamin;
+    }
+
+    public Double getD2D3Vitamin() {
+        return d2D3Vitamin;
+    }
+
+    public Double geteVitaminAlphaTocopherol() {
+        return eVitaminAlphaTocopherol;
+    }
+
+    public Double geteVitaminAdded() {
+        return eVitaminAdded;
+    }
+
+    public Double getkVitaminPhylloquinone() {
+        return kVitaminPhylloquinone;
+    }
+
+    public Double getCalcium() {
+        return calcium;
+    }
+
+    public Double getPhosphorus() {
+        return phosphorus;
+    }
+
+    public Double getMagnesium() {
+        return magnesium;
+    }
+
+    public Double getIron() {
+        return iron;
+    }
+
+    public Double getZinc() {
+        return zinc;
+    }
+
+    public Double getCopper() {
+        return copper;
+    }
+
+    public Double getSelenium() {
+        return selenium;
+    }
+
+    public Double getPotassium() {
+        return potassium;
+    }
+
+    public Double getSodium() {
+        return sodium;
+    }
+
+    public Double getCaffeine() {
+        return caffeine;
+    }
+
+    public Double getTheobromine() {
+        return theobromine;
+    }
+
+    public Double getAlcohol() {
+        return alcohol;
+    }
+
+    public String getFoodGroup() {
+        return foodGroup;
+    }
+
+    @Override
 	public String toString() {
 		return "Aliment{" +
 				"description='" + description + '\'' +
 				", energy=" + energy +
 				", protein=" + protein +
-				", carbohydrate=" + carbohydrate +
-				", sugarsTotal=" + sugarsTotal +
-				", fiberTotalDietary=" + fiberTotalDietary +
-				", fatTotal=" + fatTotal +
-				", fattyAcidsTotalSaturated=" + fattyAcidsTotalSaturated +
-				", fattyAcidsTotalMonounsaturated=" + fattyAcidsTotalMonounsaturated +
-				", fattyAcidsTotalPolyunsaturated=" + fattyAcidsTotalPolyunsaturated +
-				", cholesterol=" + cholesterol +
-				", retinol=" + retinol +
-				", aVitaminMce=" + aVitaminMce +
-				", caroteneAlpha=" + caroteneAlpha +
-				", caroteneBeta=" + caroteneBeta +
-				", cryptoxanthinBeta=" + cryptoxanthinBeta +
-				", lycopene=" + lycopene +
-				", luteinAndZeaxanthin=" + luteinAndZeaxanthin +
-				", thiamin=" + thiamin +
-				", riboflavin=" + riboflavin +
-				", niacin=" + niacin +
-				", b6Vitamin=" + b6Vitamin +
-				", folicAcid=" + folicAcid +
-				", folateFood=" + folateFood +
-				", folateDfe=" + folateDfe +
-				", folateTotal=" + folateTotal +
-				", cholineTotal=" + cholineTotal +
-				", b12Vitamin=" + b12Vitamin +
-				", b12VitaminAdded=" + b12VitaminAdded +
-				", cVitamin=" + cVitamin +
-				", d2D3Vitamin=" + d2D3Vitamin +
-				", eVitaminAlphaTocopherol=" + eVitaminAlphaTocopherol +
-				", eVitaminAdded=" + eVitaminAdded +
-				", kVitaminPhylloquinone=" + kVitaminPhylloquinone +
-				", calcium=" + calcium +
-				", phosphorus=" + phosphorus +
-				", magnesium=" + magnesium +
-				", iron=" + iron +
-				", zinc=" + zinc +
-				", copper=" + copper +
-				", selenium=" + selenium +
-				", potassium=" + potassium +
-				", sodium=" + sodium +
-				", caffeine=" + caffeine +
-				", theobromine=" + theobromine +
-				", alcohol=" + alcohol +
+//				", carbohydrate=" + carbohydrate +
+//				", sugarsTotal=" + sugarsTotal +
+//				", fiberTotalDietary=" + fiberTotalDietary +
+//				", fatTotal=" + fatTotal +
+//				", fattyAcidsTotalSaturated=" + fattyAcidsTotalSaturated +
+//				", fattyAcidsTotalMonounsaturated=" + fattyAcidsTotalMonounsaturated +
+//				", fattyAcidsTotalPolyunsaturated=" + fattyAcidsTotalPolyunsaturated +
+//				", cholesterol=" + cholesterol +
+//				", retinol=" + retinol +
+//				", aVitaminMce=" + aVitaminMce +
+//				", caroteneAlpha=" + caroteneAlpha +
+//				", caroteneBeta=" + caroteneBeta +
+//				", cryptoxanthinBeta=" + cryptoxanthinBeta +
+//				", lycopene=" + lycopene +
+//				", luteinAndZeaxanthin=" + luteinAndZeaxanthin +
+//				", thiamin=" + thiamin +
+//				", riboflavin=" + riboflavin +
+//				", niacin=" + niacin +
+//				", b6Vitamin=" + b6Vitamin +
+//				", folicAcid=" + folicAcid +
+//				", folateFood=" + folateFood +
+//				", folateDfe=" + folateDfe +
+//				", folateTotal=" + folateTotal +
+//				", cholineTotal=" + cholineTotal +
+//				", b12Vitamin=" + b12Vitamin +
+//				", b12VitaminAdded=" + b12VitaminAdded +
+//				", cVitamin=" + cVitamin +
+//				", d2D3Vitamin=" + d2D3Vitamin +
+//				", eVitaminAlphaTocopherol=" + eVitaminAlphaTocopherol +
+//				", eVitaminAdded=" + eVitaminAdded +
+//				", kVitaminPhylloquinone=" + kVitaminPhylloquinone +
+//				", calcium=" + calcium +
+//				", phosphorus=" + phosphorus +
+//				", magnesium=" + magnesium +
+//				", iron=" + iron +
+//				", zinc=" + zinc +
+//				", copper=" + copper +
+//				", selenium=" + selenium +
+//				", potassium=" + potassium +
+//				", sodium=" + sodium +
+//				", caffeine=" + caffeine +
+//				", theobromine=" + theobromine +
+//				", alcohol=" + alcohol +
 				", foodGroup='" + foodGroup + '\'' +
 				'}';
 	}

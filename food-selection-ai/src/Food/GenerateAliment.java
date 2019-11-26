@@ -1,3 +1,5 @@
+package Food;
+
 import DataMigrator.IncorrectFormatException;
 import DataMigrator.Migrator;
 import Food.Aliment;
@@ -6,10 +8,10 @@ import util.CSVReader;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
+public class GenerateAliment {
+    public static List<Aliment> generateAliment() {
         // TODO put this in config file
-        String csvFile = "C:\\Users\\Montigny\\Documents\\INSA\\UQAC\\IA\\projet\\foodTable.csv";
+        String csvFile = "foodTable.csv";
 
         // Import data from the CSV file
         Migrator m = new Migrator(new CSVReader(',', '"'));
@@ -30,6 +32,7 @@ public class Main {
 
         System.out.println(aliments.get(0).toString());
 
+        return aliments;
         // Use data
         // TODO
     }

@@ -59,9 +59,10 @@ public class GA {
 
     // Mutate a repas by changin a random aliment
     private static void mutate(Repas repas) {
-        Aliment randomAliment = repas.getRandomAliment();
-    	int pos1= (int) (Math.random()* repas.repasSize());
-        repas.setAliment(pos1, randomAliment);
+    	int pos= (int) (Math.random()* repas.repasSize());
+    	String foodGroup = repas.getAliment(pos).getFoodGroup();
+    	Aliment randomAliment = repas.getRandomAliment(foodGroup);
+        repas.setAliment(pos, randomAliment);
     
     }
     	

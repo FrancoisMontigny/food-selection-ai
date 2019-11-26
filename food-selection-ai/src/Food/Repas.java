@@ -16,8 +16,8 @@ public class Repas {
     // Cache
     private double fitness = 0;
     private int score = 0;
-    private int numberOfAliments=TSP.destinationAliments.size();
-    private int numberOfAlimentsAsked = 2;
+    private int numberOfAliments= Main.alimentlist.size();
+    private int numberOfAlimentsAsked = 5;
     private Random rand = new Random();
     // Constructs a blank repas
     public Repas(){
@@ -34,9 +34,11 @@ public class Repas {
     public void generateIndividual() {
 
         // Randomly select aliments
-        for (int i = 0; i < numberOfAlimentsAsked; i++) {
-          setAliment(i, getRandomAliment());
-        }
+        setAliment(0,getRandomAliment("Dairy Foods"));
+        setAliment(1,getRandomAliment("Fruits"));
+        setAliment(2,getRandomAliment("Vegetables"));
+        setAliment(3,getRandomAliment("Grains, Beans and Nuts"));
+        setAliment(4,getRandomAliment("Meet, Poultry,Fish,Seafood and eggs"));
     }
 
     // Gets a aliment from the repas
@@ -44,12 +46,18 @@ public class Repas {
         return (Aliment)repas.get(repasPosition);
     }
 
-    public Aliment getRandomAliment(){
-        int random = rand.nextInt(numberOfAliments);
-        return TSP.destinationAliments.get(random);
+    // C EST DEGEULASSE PLEASE DONT DO THIS MAIS JAI PAS LES LISTE DIFFERENTE
+    public Aliment getRandomAliment(String foodGroup){
+        Aliment randomAliment;
+        do{
+            int random = rand.nextInt(numberOfAliments);
+            randomAliment = Main.alimentlist.get(random);
+        }while(!randomAliment.getFoodGroup().equals(foodGroup));
+        return randomAliment;
     }
 
     // Sets a aliment in a certain position within a repas
+
     public void setAliment(int repasPosition, Aliment aliment) {
         repas.set(repasPosition, aliment);
         // If the repass been altered we need to reset the fitness and score
@@ -74,10 +82,10 @@ public class Repas {
             for (int alimentIndex=0; alimentIndex < repasSize(); alimentIndex++) {
                 // Get aliment we're travelling from
                 Aliment aliment = getAliment(alimentIndex);
-                totalCalorie += aliment.getCalorie();
-                totalVitamineA += aliment.getVitamineA();
+                totalCalorie += aliment.getEnergy();
+                totalVitamineA += aliment.getProtein();
             }
-            double repasScore = Math.pow((totalCalorie-200),2)+Math.pow((totalVitamineA-200),2);
+            double repasScore = Math.pow((totalCalorie- Main.goalValue.getEnergy()),2)+Math.pow((totalVitamineA- Main.goalValue.getProtein()),2);
             score = (int) Math.sqrt(repasScore);
         }
         return score;
