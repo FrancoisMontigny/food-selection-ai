@@ -2,7 +2,6 @@ package Food;
 
 import DataMigrator.IncorrectFormatException;
 import DataMigrator.Migrator;
-import Food.Aliment;
 import util.CSVReader;
 
 import java.io.FileNotFoundException;
@@ -17,7 +16,7 @@ public class GenerateAliment {
         Migrator m = new Migrator(new CSVReader(',', '"'));
         List<Aliment> aliments = null;
         try {
-            aliments = m.migrateData(csvFile);
+            aliments = m.importData(csvFile);
         } catch (FileNotFoundException fnfe) {
             System.err.println("File " + csvFile + " not found. Aborting.");
             System.exit(-1);

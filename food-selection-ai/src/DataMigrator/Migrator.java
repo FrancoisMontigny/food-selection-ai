@@ -18,7 +18,7 @@ public class Migrator {
         this.reader = reader;
     }
 
-    public List<Aliment> migrateData(String csvPath) throws FileNotFoundException, IncorrectFormatException {
+    public List<Aliment> importData(String csvPath) throws FileNotFoundException, IncorrectFormatException {
         List<Aliment> data = new ArrayList<>();
         AlimentFactory af = new AlimentFactory();
 
