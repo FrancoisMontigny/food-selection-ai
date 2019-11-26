@@ -11,6 +11,13 @@ import java.util.Scanner;
 
 public class Migrator {
     private static final int EXPECTED_COLUMNS = 47;
+    private static String[] FoodGroupsLabels = {
+            "Dairy Foods",
+            "Vegetables",
+            "Meet, Poultry,Fish,Seafood and eggs",
+            "Grains, Beans and Nuts",
+            "Fruits"
+    };
 
     private CSVReader reader;
 
@@ -54,5 +61,17 @@ public class Migrator {
         scanner.close();
 
         return data;
+    }
+
+    public List<Aliment> getAlimentGroup(List<Aliment> aliments, FoodGroup group) {
+        List<Aliment> alimentGroup = new ArrayList<>();
+
+        for (Aliment a: aliments) {
+            if (a.getFoodGroup().trim().equals(FoodGroupsLabels[group.ordinal()].trim())) {
+                alimentGroup.add(a);
+            }
+        }
+
+        return alimentGroup;
     }
 }
