@@ -18,6 +18,11 @@ public class CSVReader {
         this.defaultQuote = defaultQuote;
     }
 
+    /**
+     * TODO remove this after testing
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         CSVReader reader = new CSVReader(',','"');
 
@@ -34,7 +39,7 @@ public class CSVReader {
     public List<String> parseLine(String cvsLine, char separators, char customQuote) {
         List<String> result = new ArrayList<>();
 
-        if (cvsLine == null && cvsLine.isEmpty()) {
+        if (cvsLine == null || cvsLine.isEmpty()) {
             return result;
         }
 
@@ -77,12 +82,12 @@ public class CSVReader {
 
                     inQuotes = true;
 
-                    //Fixed : allow "" in empty quote enclosed
+                    // Fixed : allow "" in empty quote enclosed
                     if (chars[0] != '"' && customQuote == '\"') {
                         curVal.append('"');
                     }
 
-                    //double quotes in column will hit this!
+                    // Double quotes in column will hit this!
                     if (startCollectChar) {
                         curVal.append('"');
                     }
