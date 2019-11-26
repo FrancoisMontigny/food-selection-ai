@@ -2,12 +2,11 @@ package Food;
 
 
 /*
-	* Tour.java
+	*
 	* Stores a candidate repas
 	*/
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class Repas {
