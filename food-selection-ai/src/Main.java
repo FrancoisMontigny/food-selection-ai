@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // TODO put this in config file
         String csvFile = "C:\\Users\\Montigny\\Documents\\INSA\\UQAC\\IA\\projet\\foodTable.csv";
 
         // Import data from the CSV file
@@ -26,6 +27,8 @@ public class Main {
             System.out.println("Couldn't gather data from file. Aborting.");
             System.exit(-1);
         }
+
+        System.out.println(aliments.get(0).toString());
 
         // Use data
         // TODO

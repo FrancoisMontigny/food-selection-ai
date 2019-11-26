@@ -18,24 +18,6 @@ public class CSVReader {
         this.defaultQuote = defaultQuote;
     }
 
-    /**
-     * TODO remove this after testing
-     * @param args
-     * @throws Exception
-     */
-    public static void main(String[] args) throws Exception {
-        CSVReader reader = new CSVReader(',','"');
-
-        String csvFile = "C:\\Users\\Montigny\\Documents\\INSA\\UQAC\\IA\\projet\\foodTable.csv";
-
-        Scanner scanner = new Scanner(new File(csvFile));
-        while (scanner.hasNext()) {
-            List<String> line = reader.parseLine(scanner.nextLine(), reader.defaultSeparator, reader.defaultQuote);
-            System.out.println(line.get(0));
-        }
-        scanner.close();
-    }
-
     public List<String> parseLine(String cvsLine, char separators, char customQuote) {
         List<String> result = new ArrayList<>();
 

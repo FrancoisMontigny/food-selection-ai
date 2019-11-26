@@ -37,7 +37,6 @@ public class Migrator {
 
         while (scanner.hasNext()) {
             List<String> line = reader.parseLine(scanner.nextLine(), ' ', ' ');
-            System.out.println(line.get(0));
 
             Aliment a;
 

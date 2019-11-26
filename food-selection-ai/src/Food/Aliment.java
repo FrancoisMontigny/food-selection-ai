@@ -141,14 +141,58 @@ public class Aliment {
         return this.Name;
     }
 
-    @Override
-    public String toString() {
-        return "Aliment{" +
-                "Calorie=" + Calorie +
-                ", VitamineA=" + VitamineA +
-                ", Name='" + Name + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Aliment{" +
+				"description='" + description + '\'' +
+				", energy=" + energy +
+				", protein=" + protein +
+				", carbohydrate=" + carbohydrate +
+				", sugarsTotal=" + sugarsTotal +
+				", fiberTotalDietary=" + fiberTotalDietary +
+				", fatTotal=" + fatTotal +
+				", fattyAcidsTotalSaturated=" + fattyAcidsTotalSaturated +
+				", fattyAcidsTotalMonounsaturated=" + fattyAcidsTotalMonounsaturated +
+				", fattyAcidsTotalPolyunsaturated=" + fattyAcidsTotalPolyunsaturated +
+				", cholesterol=" + cholesterol +
+				", retinol=" + retinol +
+				", aVitaminMce=" + aVitaminMce +
+				", caroteneAlpha=" + caroteneAlpha +
+				", caroteneBeta=" + caroteneBeta +
+				", cryptoxanthinBeta=" + cryptoxanthinBeta +
+				", lycopene=" + lycopene +
+				", luteinAndZeaxanthin=" + luteinAndZeaxanthin +
+				", thiamin=" + thiamin +
+				", riboflavin=" + riboflavin +
+				", niacin=" + niacin +
+				", b6Vitamin=" + b6Vitamin +
+				", folicAcid=" + folicAcid +
+				", folateFood=" + folateFood +
+				", folateDfe=" + folateDfe +
+				", folateTotal=" + folateTotal +
+				", cholineTotal=" + cholineTotal +
+				", b12Vitamin=" + b12Vitamin +
+				", b12VitaminAdded=" + b12VitaminAdded +
+				", cVitamin=" + cVitamin +
+				", d2D3Vitamin=" + d2D3Vitamin +
+				", eVitaminAlphaTocopherol=" + eVitaminAlphaTocopherol +
+				", eVitaminAdded=" + eVitaminAdded +
+				", kVitaminPhylloquinone=" + kVitaminPhylloquinone +
+				", calcium=" + calcium +
+				", phosphorus=" + phosphorus +
+				", magnesium=" + magnesium +
+				", iron=" + iron +
+				", zinc=" + zinc +
+				", copper=" + copper +
+				", selenium=" + selenium +
+				", potassium=" + potassium +
+				", sodium=" + sodium +
+				", caffeine=" + caffeine +
+				", theobromine=" + theobromine +
+				", alcohol=" + alcohol +
+				", foodGroup='" + foodGroup + '\'' +
+				'}';
+	}
 }
 
 
