@@ -18,7 +18,7 @@ public class Migrator {
         this.reader = reader;
     }
 
-    public List<Aliment> migrateData(String csvPath) throws FileNotFoundException {
+    public List<Aliment> migrateData(String csvPath) throws FileNotFoundException, IncorrectFormatException {
         List<Aliment> data = new ArrayList<>();
         AlimentFactory af = new AlimentFactory();
 
@@ -32,14 +32,25 @@ public class Migrator {
         List<String> headers = reader.parseLine(scanner.nextLine(), ' ', ' ');
 
         if (headers.size() != EXPECTED_COLUMNS) {
-            return null;
+            throw new IncorrectFormatException("Incorrect number of headers in file.");
         }
 
         while (scanner.hasNext()) {
             List<String> line = reader.parseLine(scanner.nextLine(), ' ', ' ');
             System.out.println(line.get(0));
 
-            data.add(af.createAliment(line));
+            Aliment a;
+
+            try {
+                a = af.createAliment(line);
+            } catch (IncorrectFormatException ife) {
+                a = null;
+            }
+
+            if (a != null) {
+                data.add(a);
+            }
+
         }
         scanner.close();
 

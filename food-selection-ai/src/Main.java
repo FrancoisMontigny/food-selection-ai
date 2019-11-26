@@ -1,3 +1,4 @@
+import DataMigrator.IncorrectFormatException;
 import DataMigrator.Migrator;
 import Food.Aliment;
 import util.CSVReader;
@@ -14,9 +15,11 @@ public class Main {
         List<Aliment> aliments = null;
         try {
             aliments = m.migrateData(csvFile);
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException fnfe) {
             System.err.println("File " + csvFile + " not found. Aborting.");
             System.exit(-1);
+        } catch (IncorrectFormatException ife) {
+            System.err.println("Uncorrect format : " + ife.getMessage() + " Aborting.");
         }
 
         if (aliments == null || aliments.isEmpty()) {
