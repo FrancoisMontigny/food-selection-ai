@@ -7,6 +7,7 @@ package Food;
 	*/
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Repas {
@@ -16,7 +17,6 @@ public class Repas {
     // Cache
     private double fitness = 0;
     private int score = 0;
-    private int numberOfAliments= Main.alimentlist.size();
     private int numberOfAlimentsAsked = 5;
     private Random rand = new Random();
     // Constructs a blank repas
@@ -34,11 +34,11 @@ public class Repas {
     public void generateIndividual() {
 
         // Randomly select aliments
-        setAliment(0,getRandomAliment("Dairy Foods"));
-        setAliment(1,getRandomAliment("Fruits"));
-        setAliment(2,getRandomAliment("Vegetables"));
-        setAliment(3,getRandomAliment("Grains, Beans and Nuts"));
-        setAliment(4,getRandomAliment("Meet, Poultry,Fish,Seafood and eggs"));
+        setAliment(0,getRandomAliment(0));
+        setAliment(1,getRandomAliment(1));
+        setAliment(2,getRandomAliment(2));
+        setAliment(3,getRandomAliment(3));
+        setAliment(4,getRandomAliment(4));
     }
 
     // Gets a aliment from the repas
@@ -46,14 +46,10 @@ public class Repas {
         return (Aliment)repas.get(repasPosition);
     }
 
-    // C EST DEGEULASSE PLEASE DONT DO THIS MAIS JAI PAS LES LISTE DIFFERENTE
-    public Aliment getRandomAliment(String foodGroup){
-        Aliment randomAliment;
-        do{
-            int random = rand.nextInt(numberOfAliments);
-            randomAliment = Main.alimentlist.get(random);
-        }while(!randomAliment.getFoodGroup().equals(foodGroup));
-        return randomAliment;
+    public Aliment getRandomAliment(int position){
+        List<Aliment> aliments = Main.alimentlist.get(position);
+        int random = rand.nextInt(aliments.size());
+        return aliments.get(random);
     }
 
     // Sets a aliment in a certain position within a repas

@@ -1,5 +1,6 @@
 package Food;
 
+import DataMigrator.FoodGroup;
 import DataMigrator.IncorrectFormatException;
 import DataMigrator.Migrator;
 import util.CSVReader;
@@ -8,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class GenerateAliment {
-    public static List<Aliment> generateAliment() {
+    public static List<Aliment> generateAlimentGroup(FoodGroup foodgroup) {
         // TODO put this in config file
         String csvFile = "foodTable.csv";
 
@@ -29,9 +30,7 @@ public class GenerateAliment {
             System.exit(-1);
         }
 
-        System.out.println(aliments.get(0).toString());
-
-        return aliments;
+        return  m.getAlimentGroup(aliments,foodgroup);
         // Use data
         // TODO
     }
