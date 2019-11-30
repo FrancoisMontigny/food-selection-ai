@@ -17,7 +17,7 @@ public class Repas {
     // Cache
     private double fitness = 0;
     private int score = 0;
-    private int numberOfAlimentsAsked = 5;
+    private int numberOfAlimentsAsked = 5*2;
     private Random rand = new Random();
     // Constructs a blank repas
     public Repas(){
@@ -34,11 +34,9 @@ public class Repas {
     public void generateIndividual() {
 
         // Randomly select aliments
-        setAliment(0,getRandomAliment(0));
-        setAliment(1,getRandomAliment(1));
-        setAliment(2,getRandomAliment(2));
-        setAliment(3,getRandomAliment(3));
-        setAliment(4,getRandomAliment(4));
+        for (int i = 0; i < numberOfAlimentsAsked; i++) {
+            setAliment(i,getRandomAliment(i));
+        }
     }
 
     // Gets a aliment from the repas
@@ -47,7 +45,7 @@ public class Repas {
     }
 
     public Aliment getRandomAliment(int position){
-        List<Aliment> aliments = Main.alimentlist.get(position);
+        List<Aliment> aliments = Main.alimentlist.get(position % 5);
         int random = rand.nextInt(aliments.size());
         return aliments.get(random);
     }
@@ -72,16 +70,27 @@ public class Repas {
     // Gets the total score of the repas
     public int getScore(){
         if (score == 0) {
-            int totalEnergy=0;
-            int totalProtein=0;
+            double totalEnergy=0;
+            double totalProtein=0;
+            double totalCarbohydrate=0;
+            double totalSugar=0;
+            double totalFat=0;
+            double totalFatSaturated=0;
             // Loop through our repas's aliments
             for (int alimentIndex=0; alimentIndex < repasSize(); alimentIndex++) {
                 // Get aliment we're travelling from
                 Aliment aliment = getAliment(alimentIndex);
                 totalEnergy += aliment.getEnergy();
                 totalProtein += aliment.getProtein();
+                totalCarbohydrate += aliment.getCarbohydrate();
+                totalFat += aliment.getFatTotal();
+                totalSugar += aliment.getSugarsTotal();
+                totalFatSaturated += aliment.getFattyAcidsTotalSaturated();
+
             }
-            double repasScore = Math.pow((totalEnergy- Main.goalValue.getEnergy()),2)+Math.pow((totalProtein- Main.goalValue.getProtein()),2);
+            double repasScore = Math.pow((totalEnergy- Main.goalValue.getEnergy()),2)+Math.pow((totalProtein- Main.goalValue.getProtein()),2)
+                    +Math.pow((totalCarbohydrate- Main.goalValue.getCarbohydrate()),2)+Math.pow((totalSugar- Main.goalValue.getSugarsTotal()),2)
+                    +Math.pow((totalFat- Main.goalValue.getFatTotal()),2)+Math.pow((totalFatSaturated- Main.goalValue.getFattyAcidsTotalSaturated()),2);
             score = (int) Math.sqrt(repasScore);
         }
         return score;
