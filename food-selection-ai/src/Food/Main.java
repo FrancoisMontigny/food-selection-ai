@@ -32,8 +32,8 @@ public class Main {
         int initialscore = pop.getFittest().getScore();
         System.out.println("initial score = " + initialscore);
 
-        // Evolve population for 100 generations
-        for (int i = 0; i < 100; i++) {
+        // Evolve population for 200 generations
+        for (int i = 0; i < 200; i++) {
             pop = GA.evolvePopulation(pop);
         }
 
@@ -42,7 +42,6 @@ public class Main {
         System.out.println("final score = " + finalscore);
         System.out.println("difference = " + (initialscore - finalscore));
         System.out.println(pop.getFittest());
-        System.out.println(5 % 5);
     }
 
 

@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 public class GA {
 	/* GA parameters */
-    private static final double mutationRate = 0.015;
+    private static final double mutationRate = 0.025;
     private static final int tournamentSize = 5;
-    private static final boolean elitism = true;
 
     // Evolves a population over one generation
     public static Population evolvePopulation(Population pop) {
@@ -44,15 +43,22 @@ public class GA {
         // Create new child repas
         Repas child = new Repas();
         //---------------------------------------------------------------------------------------------------------
-        // Crossover 2 parents using the One Point crossover
+        // Crossover 2 parents using the Two Point crossover
         //----------------------------------------------------------------------------------------------------------
-        int crossPos = (int) (Math.random() * parent1.repasSize());
+        int crossPos1, crossPos2;
+        do{
+        crossPos1 = (int) (Math.random() * parent1.repasSize());
+        crossPos2 = (int) (Math.random() * parent1.repasSize());
+        } while (crossPos1>=crossPos2);
 
-        for (int i = 0 ; i < crossPos; i++) {
+        for (int i = 0 ; i < crossPos1; i++) {
         	child.setAliment(i, parent1.getAliment(i));
         }
-        for (int i = crossPos ; i < child.repasSize(); i++) {
-            child.setAliment(i,parent2.getAliment(i));
+        for (int i = crossPos1 ; i < crossPos2; i++) {
+            child.setAliment(i, parent1.getAliment(i));
+        }
+        for (int i = crossPos2 ; i < child.repasSize(); i++) {
+            child.setAliment(i,parent1.getAliment(i));
         }
         return child;
     }

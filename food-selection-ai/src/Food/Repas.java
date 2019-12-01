@@ -83,7 +83,6 @@ public class Repas {
             double totalB6Vitamin = 0;
             double totalFolicAcid = 0;
             double totalB12Vitamin = 0;
-            double totalB12VitaminAdded = 0;
             double totalCVitamin = 0;
             double totalCalcium = 0;
             double totalPhosphorus = 0;
@@ -113,8 +112,7 @@ public class Repas {
                 totalRiboflavin += aliment.getRiboflavin();
                 totalB6Vitamin += aliment.getB6Vitamin();
                 totalFolicAcid += aliment.getFolicAcid();
-                totalB12Vitamin += aliment.getB12Vitamin();
-                totalB12VitaminAdded += aliment.getB12VitaminAdded();
+                totalB12Vitamin += aliment.getB12Vitamin() + aliment.getB12VitaminAdded();
                 totalCVitamin += aliment.getCVitamin();
                 totalCalcium += aliment.getCalcium();
                 totalPhosphorus += aliment.getPhosphorus();
@@ -134,7 +132,7 @@ public class Repas {
                     + Math.pow((totalRetinol - Main.goalValue.getRetinol()), 2) + Math.pow((totalAVitamin - Main.goalValue.getAVitaminMce()), 2)
                     + Math.pow((totalThiamin - Main.goalValue.getThiamin()), 2) + Math.pow((totalRiboflavin - Main.goalValue.getRiboflavin()), 2)
                     + Math.pow((totalB6Vitamin - Main.goalValue.getB6Vitamin()), 2) + Math.pow((totalFolicAcid - Main.goalValue.getFolicAcid()), 2)
-                    + Math.pow((totalB12Vitamin - Main.goalValue.getB12Vitamin()), 2) + Math.pow((totalB12VitaminAdded - Main.goalValue.getB12VitaminAdded()), 2)
+                    + Math.pow((totalB12Vitamin - Main.goalValue.getB12Vitamin()), 2)
                     + Math.pow((totalCVitamin - Main.goalValue.getCVitamin()), 2) + Math.pow((totalCalcium - Main.goalValue.getCalcium()), 2)
                     + Math.pow((totalPhosphorus - Main.goalValue.getPhosphorus()), 2) + Math.pow((totalMagnesium - Main.goalValue.getMagnesium()), 2)
                     + Math.pow((totalIron - Main.goalValue.getIron()), 2) + Math.pow((totalZinc - Main.goalValue.getZinc()), 2)
