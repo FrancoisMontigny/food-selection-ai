@@ -52,16 +52,16 @@ public class Aliment {
 
 
     public Aliment(String description, Double energy, Double protein, Double carbohydrate, Double sugarsTotal,
-				   Double fiberTotalDietary, Double fatTotal, Double fattyAcidsTotalSaturated,
-				   Double fattyAcidsTotalMonounsaturated, Double fattyAcidsTotalPolyunsaturated, Double cholesterol,
-				   Double retinol, Double aVitaminMce, Double caroteneAlpha, Double caroteneBeta,
-				   Double cryptoxanthinBeta, Double lycopene, Double luteinAndZeaxanthin, Double thiamin,
-				   Double riboflavin, Double niacin, Double b6Vitamin, Double folicAcid, Double folateFood,
-				   Double folateDfe, Double folateTotal, Double cholineTotal, Double b12Vitamin, Double b12VitaminAdded,
-				   Double cVitamin, Double d2D3Vitamin, Double eVitaminAlphaTocopherol, Double eVitaminAdded,
-				   Double kVitaminPhylloquinone, Double calcium, Double phosphorus, Double magnesium, Double iron,
-				   Double zinc, Double copper, Double selenium, Double potassium, Double sodium, Double caffeine,
-				   Double theobromine, Double alcohol, String foodGroup) {
+                   Double fiberTotalDietary, Double fatTotal, Double fattyAcidsTotalSaturated,
+                   Double fattyAcidsTotalMonounsaturated, Double fattyAcidsTotalPolyunsaturated, Double cholesterol,
+                   Double retinol, Double aVitaminMce, Double caroteneAlpha, Double caroteneBeta,
+                   Double cryptoxanthinBeta, Double lycopene, Double luteinAndZeaxanthin, Double thiamin,
+                   Double riboflavin, Double niacin, Double b6Vitamin, Double folicAcid, Double folateFood,
+                   Double folateDfe, Double folateTotal, Double cholineTotal, Double b12Vitamin, Double b12VitaminAdded,
+                   Double cVitamin, Double d2D3Vitamin, Double eVitaminAlphaTocopherol, Double eVitaminAdded,
+                   Double kVitaminPhylloquinone, Double calcium, Double phosphorus, Double magnesium, Double iron,
+                   Double zinc, Double copper, Double selenium, Double potassium, Double sodium, Double caffeine,
+                   Double theobromine, Double alcohol, String foodGroup) {
         this.description = description;
         this.energy = energy;
         this.protein = protein;
@@ -159,7 +159,7 @@ public class Aliment {
         return retinol;
     }
 
-    public Double getaVitaminMce() {
+    public Double getAVitaminMce() {
         return aVitaminMce;
     }
 
@@ -227,7 +227,7 @@ public class Aliment {
         return b12VitaminAdded;
     }
 
-    public Double getcVitamin() {
+    public Double getCVitamin() {
         return cVitamin;
     }
 
@@ -300,11 +300,11 @@ public class Aliment {
     }
 
     @Override
-	public String toString() {
-		return "Aliment{" +
-				"description='" + description + '\'' +
-				", energy=" + energy +
-				", protein=" + protein +
+    public String toString() {
+        return "Aliment{" +
+                "description='" + description + '\'' +
+                ", energy=" + energy +
+                ", protein=" + protein +
 //				", carbohydrate=" + carbohydrate +
 //				", sugarsTotal=" + sugarsTotal +
 //				", fiberTotalDietary=" + fiberTotalDietary +
@@ -348,9 +348,9 @@ public class Aliment {
 //				", caffeine=" + caffeine +
 //				", theobromine=" + theobromine +
 //				", alcohol=" + alcohol +
-				", foodGroup='" + foodGroup + '\'' +
-				'}';
-	}
+                ", foodGroup='" + foodGroup + '\'' +
+                '}';
+    }
 }
 
 
