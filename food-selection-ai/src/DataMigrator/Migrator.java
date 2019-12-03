@@ -25,6 +25,14 @@ public class Migrator {
         this.reader = reader;
     }
 
+    /**
+     * Import aliments from a CSV file.
+     *
+     * @param csvPath the path to the CSV file.
+     * @return the list of aliments in the CSV file.
+     * @throws FileNotFoundException    if the file is not found.
+     * @throws IncorrectFormatException if the file has incorrect formatting.
+     */
     public List<Aliment> importData(String csvPath) throws FileNotFoundException, IncorrectFormatException {
         List<Aliment> data = new ArrayList<>();
         AlimentFactory af = new AlimentFactory();
@@ -36,14 +44,14 @@ public class Migrator {
         }
 
         // The first line is the columns' headers
-        List<String> headers = reader.parseLine(scanner.nextLine(), ' ', ' ');
+        List<String> headers = reader.parseLine(scanner.nextLine());
 
         if (headers.size() != EXPECTED_COLUMNS) {
             throw new IncorrectFormatException("Incorrect number of headers in file.");
         }
 
         while (scanner.hasNext()) {
-            List<String> line = reader.parseLine(scanner.nextLine(), ' ', ' ');
+            List<String> line = reader.parseLine(scanner.nextLine());
 
             Aliment a;
 
@@ -63,10 +71,17 @@ public class Migrator {
         return data;
     }
 
+    /**
+     * Get all aliments from a given group.
+     *
+     * @param aliments the complete list of aliments.
+     * @param group    the food group to get?
+     * @return the fraction of the complete list of aliments corresponding to the given food group.
+     */
     public List<Aliment> getAlimentGroup(List<Aliment> aliments, FoodGroup group) {
         List<Aliment> alimentGroup = new ArrayList<>();
 
-        for (Aliment a: aliments) {
+        for (Aliment a : aliments) {
             if (a.getFoodGroup().trim().equals(FoodGroupsLabels[group.ordinal()].trim())) {
                 alimentGroup.add(a);
             }

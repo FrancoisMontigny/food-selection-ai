@@ -18,6 +18,24 @@ public class CSVReader {
         this.defaultQuote = defaultQuote;
     }
 
+    /**
+     * Parse line with default parameters.
+     *
+     * @param cvsLine the line to parse.
+     * @return the fragments of the parsed line.
+     */
+    public List<String> parseLine(String cvsLine) {
+        return this.parseLine(cvsLine, ' ', ' ');
+    }
+
+    /**
+     * Parse a line of a CSV file.
+     *
+     * @param cvsLine     the line to parse.
+     * @param separators  the separators to use for the line.
+     * @param customQuote the custom quote to use for the line.
+     * @return the fragments of the parsed line.
+     */
     public List<String> parseLine(String cvsLine, char separators, char customQuote) {
         List<String> result = new ArrayList<>();
 
