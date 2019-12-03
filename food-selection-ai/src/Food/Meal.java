@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Repas {
+public class Meal {
 
     // Holds our repas of aliments
     private ArrayList<Aliment> repas = new ArrayList<Aliment>();
@@ -21,13 +21,13 @@ public class Repas {
     private Random rand = new Random();
 
     // Constructs a blank repas
-    public Repas() {
+    public Meal() {
         for (int i = 0; i < numberOfAlimentsAsked; i++) {
             repas.add(null);
         }
     }
 
-    public Repas(ArrayList<Aliment> repas) {
+    public Meal(ArrayList<Aliment> repas) {
         this.repas = repas;
     }
 

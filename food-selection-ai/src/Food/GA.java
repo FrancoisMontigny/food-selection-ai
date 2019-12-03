@@ -1,7 +1,5 @@
 package Food;
 
-import java.util.ArrayList;
-
 public class GA {
 	/* GA parameters */
     private static final double mutationRate = 0.025;
@@ -17,14 +15,14 @@ public class GA {
         // Current population (select parents, crossover them, add child to population
         for (int i = 0; i < newPopulation.populationSize(); i++) {
             // Select parents Tournament 
-            Repas parent1 = tournamentSelection(pop);
-            Repas parent2 = tournamentSelection(pop);
+            Meal parent1 = tournamentSelection(pop);
+            Meal parent2 = tournamentSelection(pop);
             // Crossover parents
-            Repas child = crossover(parent1, parent2);
+            Meal child = crossover(parent1, parent2);
             // Add child to new population
             newPopulation.saveRepas(i, child);
         }
-      
+
 
         // Mutate the new population a bit to add some new genetic material
         for (int i = 0; i < newPopulation.populationSize(); i++) {
@@ -36,9 +34,9 @@ public class GA {
     }
 
     // Applies crossover to a set of parents and creates offspring
-    public static Repas crossover(Repas parent1, Repas parent2) {
+    public static Meal crossover(Meal parent1, Meal parent2) {
         // Create new child repas
-        Repas child = new Repas();
+        Meal child = new Meal();
         //---------------------------------------------------------------------------------------------------------
         // Crossover 2 parents using the Two Point crossover
         //----------------------------------------------------------------------------------------------------------
@@ -61,17 +59,17 @@ public class GA {
     }
 
     // Mutate a repas by changin a random aliment
-    private static void mutate(Repas repas) {
-    	int pos= (int) (Math.random()* repas.repasSize());
-    	Aliment randomAliment = repas.getRandomAliment(pos);
-        repas.setAliment(pos, randomAliment);
+    private static void mutate(Meal meal) {
+    	int pos= (int) (Math.random()* meal.repasSize());
+    	Aliment randomAliment = meal.getRandomAliment(pos);
+        meal.setAliment(pos, randomAliment);
     
     }
     	
-    
+
 
     // Selects candidate tour for crossover using tournament method
-    private static Repas tournamentSelection(Population pop) {
+    private static Meal tournamentSelection(Population pop) {
         // Create a tournament population
         Population tournament = new Population(tournamentSize, false);
         // For each place in the tournament get a random candidate tour and
@@ -81,7 +79,7 @@ public class GA {
             tournament.saveRepas(i, pop.getRepas(randomId));
         }
         // Get the fittest tour
-        Repas fittest = tournament.getFittest();
+        Meal fittest = tournament.getFittest();
         return fittest;
     }
    

@@ -9,35 +9,35 @@ package Food;
 public class Population {
 
     // Holds population of Repas
-    Repas[] RepasList;
+    Meal[] mealList;
 
     // Construct a population
     public Population(int populationSize, boolean initialise) {
-        RepasList = new Repas[populationSize];
+        mealList = new Meal[populationSize];
         // If we need to initialise a population of Repas do so
         if (initialise) {
             // Loop and create individuals
             for (int i = 0; i < populationSize(); i++) {
-                Repas newRepas = new Repas();
-                newRepas.generateIndividual();
-                saveRepas(i, newRepas);
+                Meal newMeal = new Meal();
+                newMeal.generateIndividual();
+                saveRepas(i, newMeal);
             }
         }
     }
     
     // Saves a Repas
-    public void saveRepas(int index, Repas Repas) {
-        RepasList[index] = Repas;
+    public void saveRepas(int index, Meal Meal) {
+        mealList[index] = Meal;
     }
     
     // Gets a Repas from population
-    public Repas getRepas(int index) {
-        return RepasList[index];
+    public Meal getRepas(int index) {
+        return mealList[index];
     }
 
     // Gets the best Repas in the population
-    public Repas getFittest() {
-        Repas fittest = RepasList[0];
+    public Meal getFittest() {
+        Meal fittest = mealList[0];
         // Loop through individuals to find fittest
         for (int i = 1; i < populationSize(); i++) {
             if (fittest.getFitness() <= getRepas(i).getFitness()) {
@@ -49,6 +49,6 @@ public class Population {
 
     // Gets population size
     public int populationSize() {
-        return RepasList.length;
+        return mealList.length;
     }
 }
