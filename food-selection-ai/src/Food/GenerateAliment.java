@@ -9,6 +9,12 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class GenerateAliment {
+    /**
+     * Generate a group of aliments for the given food group.
+     *
+     * @param foodgroup the food group to generate.
+     * @return the generated food group.
+     */
     public static List<Aliment> generateAlimentGroup(FoodGroup foodgroup) {
         String csvFile = "C:\\Users\\Montigny\\Documents\\INSA\\UQAC\\IA\\projet\\foodTable.csv";
 
