@@ -10,8 +10,7 @@ import java.util.List;
 
 public class GenerateAliment {
     public static List<Aliment> generateAlimentGroup(FoodGroup foodgroup) {
-        // TODO put this in config file
-        String csvFile = "foodTable.csv";
+        String csvFile = "C:\\Users\\Montigny\\Documents\\INSA\\UQAC\\IA\\projet\\foodTable.csv";
 
         // Import data from the CSV file
         Migrator m = new Migrator(new CSVReader(',', '"'));
@@ -22,7 +21,7 @@ public class GenerateAliment {
             System.err.println("File " + csvFile + " not found. Aborting.");
             System.exit(-1);
         } catch (IncorrectFormatException ife) {
-            System.err.println("Uncorrect format : " + ife.getMessage() + " Aborting.");
+            System.err.println("Incorrect format : " + ife.getMessage() + " Aborting.");
         }
 
         if (aliments == null || aliments.isEmpty()) {
@@ -31,7 +30,5 @@ public class GenerateAliment {
         }
 
         return  m.getAlimentGroup(aliments,foodgroup);
-        // Use data
-        // TODO
     }
 }

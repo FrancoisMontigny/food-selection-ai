@@ -10,6 +10,8 @@ public class Main {
     public static ArrayList<List<Aliment>> alimentlist = new ArrayList<>();
     public static Aliment goalValue;
 
+    private static final int GENERATIONS_NUMBER = 2000;
+    private static final int POPULATION_SIZE = 100;
 
     public static void main(String[] args) {
         alimentlist.add(GenerateAliment.generateAlimentGroup(FoodGroup.DAIRY_FOOD));
@@ -28,21 +30,19 @@ public class Main {
 				2000.0, 12.0, 0.0, 1.23, 0.0, "Aucun");
 
         // Initialize population
-        Population pop = new Population(100, true);
-        int initialscore = pop.getFittest().getScore();
-        System.out.println("initial score = " + initialscore);
+        Population pop = new Population(POPULATION_SIZE, true);
+        int initialScore = pop.getFittest().getScore();
+        System.out.println("Initial score = " + initialScore);
 
         // Evolve population for 2000 generations
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < GENERATIONS_NUMBER; i++) {
             pop = GA.evolvePopulation(pop);
         }
 
         // Print final results
-        int finalscore = pop.getFittest().getScore();
-        System.out.println("final score = " + finalscore);
-        System.out.println("difference = " + (initialscore - finalscore));
+        int finalScore = pop.getFittest().getScore();
+        System.out.println("Final score = " + finalScore);
+        System.out.println("Difference = " + (initialScore - finalScore));
         System.out.println(pop.getFittest());
     }
-
-
 }
