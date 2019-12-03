@@ -17,7 +17,7 @@ public class Repas {
     // Cache
     private double fitness = 0;
     private int score = 0;
-    private int numberOfAlimentsAsked = 5 * 2;
+    private int numberOfAlimentsAsked = 5 * 2; // Calculate for two repas (a day)
     private Random rand = new Random();
 
     // Constructs a blank repas
