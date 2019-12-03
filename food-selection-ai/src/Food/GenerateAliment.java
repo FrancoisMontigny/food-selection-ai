@@ -29,6 +29,6 @@ public class GenerateAliment {
             System.exit(-1);
         }
 
-        return  m.getAlimentGroup(aliments,foodgroup);
+        return m.getAlimentGroup(aliments, foodgroup);
     }
 }

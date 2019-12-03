@@ -20,14 +20,14 @@ public class Main {
         alimentlist.add(GenerateAliment.generateAlimentGroup(FoodGroup.GRAINS_BEANS_NUTS));
         alimentlist.add(GenerateAliment.generateAlimentGroup(FoodGroup.FRUITS));
         goalValue = new Aliment("Valeur journalière", 2000.0, 50.0, 260.0,
-				90.0, 123.0, 70.0, 20.0,
-				123.0, 123.0, 123.0, 800.0,
-				800.0, 123.0, 123.0, 123.0, 123.0,
-				123.0, 1.1, 1.4, 123.0, 1.4, 200.0,
-				123.0, 1.23, 1.23, 1.23, 2.5, 0.0,
-				80.0, 1.23, 1.23, 1.23, 1.23,
-				800.0, 700.0, 375.0, 14.0, 10.0, 1.0, 55.0,
-				2000.0, 12.0, 0.0, 1.23, 0.0, "Aucun");
+                90.0, 123.0, 70.0, 20.0,
+                123.0, 123.0, 123.0, 800.0,
+                800.0, 123.0, 123.0, 123.0, 123.0,
+                123.0, 1.1, 1.4, 123.0, 1.4, 200.0,
+                123.0, 1.23, 1.23, 1.23, 2.5, 0.0,
+                80.0, 1.23, 1.23, 1.23, 1.23,
+                800.0, 700.0, 375.0, 14.0, 10.0, 1.0, 55.0,
+                2000.0, 12.0, 0.0, 1.23, 0.0, "Aucun");
 
         // Initialize population
         Population pop = new Population(POPULATION_SIZE, true);
