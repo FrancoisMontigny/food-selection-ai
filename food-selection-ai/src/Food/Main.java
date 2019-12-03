@@ -28,12 +28,12 @@ public class Main {
 				2000.0, 12.0, 0.0, 1.23, 0.0, "Aucun");
 
         // Initialize population
-        Population pop = new Population(50, true);
+        Population pop = new Population(100, true);
         int initialscore = pop.getFittest().getScore();
         System.out.println("initial score = " + initialscore);
 
-        // Evolve population for 200 generations
-        for (int i = 0; i < 200; i++) {
+        // Evolve population for 2000 generations
+        for (int i = 0; i < 2000; i++) {
             pop = GA.evolvePopulation(pop);
         }
 
