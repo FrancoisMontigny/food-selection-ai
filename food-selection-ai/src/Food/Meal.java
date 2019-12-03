@@ -3,7 +3,7 @@ package Food;
 
 /*
  *
- * Stores a candidate repas
+ * Stores a candidate meal
  */
 
 import java.util.ArrayList;
@@ -12,23 +12,23 @@ import java.util.Random;
 
 public class Meal {
 
-    // Holds our repas of aliments
-    private ArrayList<Aliment> repas = new ArrayList<Aliment>();
+    // Holds our meal of aliments
+    private ArrayList<Aliment> meal = new ArrayList<Aliment>();
     // Cache
     private double fitness = 0;
     private int score = 0;
-    private int numberOfAlimentsAsked = 5 * 2; // Calculate for two repas (a day)
+    private int numberOfAlimentsAsked = 5 * 2; // Calculate for two meal (a day)
     private Random rand = new Random();
 
-    // Constructs a blank repas
+    // Constructs a blank meal
     public Meal() {
         for (int i = 0; i < numberOfAlimentsAsked; i++) {
-            repas.add(null);
+            meal.add(null);
         }
     }
 
-    public Meal(ArrayList<Aliment> repas) {
-        this.repas = repas;
+    public Meal(ArrayList<Aliment> meal) {
+        this.meal = meal;
     }
 
     // Creates a random individual
@@ -40,9 +40,9 @@ public class Meal {
         }
     }
 
-    // Gets a aliment from the repas
-    public Aliment getAliment(int repasPosition) {
-        return (Aliment) repas.get(repasPosition);
+    // Gets a aliment from the meal
+    public Aliment getAliment(int mealPosition) {
+        return (Aliment) meal.get(mealPosition);
     }
 
     public Aliment getRandomAliment(int position) {
@@ -51,15 +51,15 @@ public class Meal {
         return aliments.get(random);
     }
 
-    // Sets a aliment in a certain position within a repas
-    public void setAliment(int repasPosition, Aliment aliment) {
-        repas.set(repasPosition, aliment);
-        // If the repass been altered we need to reset the fitness and score
+    // Sets a aliment in a certain position within a meal
+    public void setAliment(int mealPosition, Aliment aliment) {
+        meal.set(mealPosition, aliment);
+        // If the meals been altered we need to reset the fitness and score
         fitness = 0;
         score = 0;
     }
 
-    // Gets the repass fitness
+    // Gets the meals fitness
     public double getFitness() {
         if (fitness == 0) {
             fitness = 1 / (double) getScore();
@@ -67,7 +67,7 @@ public class Meal {
         return fitness;
     }
 
-    // Gets the total score of the repas
+    // Gets the total score of the meal
     public int getScore() {
         if (score == 0) {
             double totalEnergy = 0;
@@ -96,8 +96,8 @@ public class Meal {
             double totalCaffeine = 0;
             double totalAlcohol = 0;
 
-            // Loop through our repas's aliments
-            for (int alimentIndex = 0; alimentIndex < repasSize(); alimentIndex++) {
+            // Loop through our meal's aliments
+            for (int alimentIndex = 0; alimentIndex < mealSize(); alimentIndex++) {
                 // Get aliment we're travelling from
                 Aliment aliment = getAliment(alimentIndex);
                 totalEnergy += aliment.getEnergy();
@@ -126,7 +126,7 @@ public class Meal {
                 totalCaffeine += aliment.getCaffeine();
                 totalAlcohol += aliment.getAlcohol();
             }
-            double repasScore = Math.pow((totalEnergy - Main.goalValue.getEnergy()), 2) + Math.pow((totalProtein - Main.goalValue.getProtein()), 2)
+            double mealScore = Math.pow((totalEnergy - Main.goalValue.getEnergy()), 2) + Math.pow((totalProtein - Main.goalValue.getProtein()), 2)
                     + Math.pow((totalCarbohydrate - Main.goalValue.getCarbohydrate()), 2) + Math.pow((totalSugar - Main.goalValue.getSugarsTotal()), 2)
                     + Math.pow((totalFat - Main.goalValue.getFatTotal()), 2) + Math.pow((totalFatSaturated - Main.goalValue.getFattyAcidsTotalSaturated()), 2)
                     + Math.pow((totalRetinol - Main.goalValue.getRetinol()), 2) + Math.pow((totalAVitamin - Main.goalValue.getAVitaminMce()), 2)
@@ -139,28 +139,28 @@ public class Meal {
                     + Math.pow((totalCopper - Main.goalValue.getCopper()), 2) + Math.pow((totalSelenium - Main.goalValue.getSelenium()), 2)
                     + Math.pow((totalPotassium - Main.goalValue.getPotassium()), 2) + Math.pow((totalSodium - Main.goalValue.getSodium()), 2)
                     + Math.pow((totalCaffeine - Main.goalValue.getCaffeine()), 2) + Math.pow((totalAlcohol - Main.goalValue.getAlcohol()), 2);
-            score = (int) Math.sqrt(repasScore);
+            score = (int) Math.sqrt(mealScore);
         }
         return score;
     }
 
-    // Get number of aliments on our repas
-    public int repasSize() {
-        return repas.size();
+    // Get number of aliments on our meal
+    public int mealSize() {
+        return meal.size();
     }
 
-    // Check if the repas contains a aliment
+    // Check if the meal contains a aliment
     public boolean containsAliment(Aliment aliment) {
-        return repas.contains(aliment);
+        return meal.contains(aliment);
     }
 
     @Override
     public String toString() {
-        String geneString = "Repas conseillé-->";
-        for (int i = 0; i < repasSize(); i++) {
-            geneString += " --> " + getAliment(i).getFoodGroup() + " : " + getAliment(i).getDescription();
+        StringBuilder geneString = new StringBuilder("Recommended meal :");
+        for (int i = 0; i < mealSize(); i++) {
+            geneString.append(" --> ").append(getAliment(i).getFoodGroup()).append(" : ").append(getAliment(i).getDescription());
         }
-        return geneString;
+        return geneString.toString();
     }
 }
 	

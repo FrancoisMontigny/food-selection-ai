@@ -20,14 +20,14 @@ public class GA {
             // Crossover parents
             Meal child = crossover(parent1, parent2);
             // Add child to new population
-            newPopulation.saveRepas(i, child);
+            newPopulation.saveMeal(i, child);
         }
 
 
         // Mutate the new population a bit to add some new genetic material
         for (int i = 0; i < newPopulation.populationSize(); i++) {
         	if(Math.random()<=mutationRate) {
-        		mutate(newPopulation.getRepas(i));}
+        		mutate(newPopulation.getMeal(i));}
         }
 
         return newPopulation;
@@ -35,15 +35,15 @@ public class GA {
 
     // Applies crossover to a set of parents and creates offspring
     public static Meal crossover(Meal parent1, Meal parent2) {
-        // Create new child repas
+        // Create new child meal
         Meal child = new Meal();
         //---------------------------------------------------------------------------------------------------------
         // Crossover 2 parents using the Two Point crossover
         //----------------------------------------------------------------------------------------------------------
         int crossPos1, crossPos2;
         do{
-        crossPos1 = (int) (Math.random() * parent1.repasSize());
-        crossPos2 = (int) (Math.random() * parent1.repasSize());
+        crossPos1 = (int) (Math.random() * parent1.mealSize());
+        crossPos2 = (int) (Math.random() * parent1.mealSize());
         } while (crossPos1>=crossPos2);
 
         for (int i = 0 ; i < crossPos1; i++) {
@@ -52,15 +52,15 @@ public class GA {
         for (int i = crossPos1 ; i < crossPos2; i++) {
             child.setAliment(i, parent1.getAliment(i));
         }
-        for (int i = crossPos2 ; i < child.repasSize(); i++) {
+        for (int i = crossPos2 ; i < child.mealSize(); i++) {
             child.setAliment(i,parent1.getAliment(i));
         }
         return child;
     }
 
-    // Mutate a repas by changin a random aliment
+    // Mutate a meal by changin a random aliment
     private static void mutate(Meal meal) {
-    	int pos= (int) (Math.random()* meal.repasSize());
+    	int pos= (int) (Math.random()* meal.mealSize());
     	Aliment randomAliment = meal.getRandomAliment(pos);
         meal.setAliment(pos, randomAliment);
     
@@ -76,7 +76,7 @@ public class GA {
         // add it
         for (int i = 0; i < tournamentSize; i++) {
             int randomId = (int) (Math.random() * pop.populationSize());
-            tournament.saveRepas(i, pop.getRepas(randomId));
+            tournament.saveMeal(i, pop.getMeal(randomId));
         }
         // Get the fittest tour
         Meal fittest = tournament.getFittest();
