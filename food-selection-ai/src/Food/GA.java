@@ -19,9 +19,6 @@ public class GA {
             // Select parents Tournament 
             Repas parent1 = tournamentSelection(pop);
             Repas parent2 = tournamentSelection(pop);
-            // Select parents RWS
-            //Tour parent1 = RWS(pop);
-            //Tour parent2 = RWS(pop);
             // Crossover parents
             Repas child = crossover(parent1, parent2);
             // Add child to new population
@@ -87,36 +84,5 @@ public class GA {
         Repas fittest = tournament.getFittest();
         return fittest;
     }
-    
-    //Select candidate tour for crossover using a RWS 
-    private static Repas RWS(Population pop) {
-    	ArrayList<Float> fitness_share=new ArrayList<Float>();
-    	Repas candidate= new Repas();
-    	
-        //Calculate sum of fitness values of all individuals in the population
-        float S=0;
-        for(int i=0;i<pop.populationSize();i++) {
-        		S=S+(float)(pop.getRepas(i).getFitness());
-        	}
-        
-        //Calculate and Save fitness share for all individuals in population
-        for(int i=0;i<pop.populationSize();i++) {
-        	fitness_share.add((float) (pop.getRepas(i).getFitness()/S));
-        	}
-        	//Select individual based on its fitness share value and random generated value between 0 and 1 
-        	double r= Math.random();
-        		float var=0;
-        		boolean passage=false;
-        		for(int i=0; i<fitness_share.size();i++) {
-        			var=var+fitness_share.get(i);
-        			if(r<var && passage==false) {
-        				candidate=pop.getRepas(i);
-        				passage=true;
-        				//break;
-        			}
-        		}
-        	
-        	return candidate;
-    }
-
+   
 }
