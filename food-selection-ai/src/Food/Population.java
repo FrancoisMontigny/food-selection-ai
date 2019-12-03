@@ -1,10 +1,8 @@
 package Food;
 /*
-* Population.java
-* Manages a population of candidate Meal
-*/
-
-
+ * Population.java
+ * Manages a population of candidate Meal
+ */
 
 public class Population {
 
@@ -24,18 +22,32 @@ public class Population {
             }
         }
     }
-    
-    // Saves a Meal
+
+    /**
+     * Saves a meal.
+     *
+     * @param index the index where to save the Meal.
+     * @param Meal  the Meal to save.
+     */
     public void saveMeal(int index, Meal Meal) {
         mealList[index] = Meal;
     }
-    
-    // Gets a Meal from population
+
+    /**
+     * Gets a Meal from population.
+     *
+     * @param index the index where to get the Meal.
+     * @return the Meal to get.
+     */
     public Meal getMeal(int index) {
         return mealList[index];
     }
 
-    // Gets the best Meal in the population
+    /**
+     * Gets the best Meal in the population.
+     *
+     * @return Gets the best Meal in the population.
+     */
     public Meal getFittest() {
         Meal fittest = mealList[0];
         // Loop through individuals to find fittest
@@ -47,7 +59,11 @@ public class Population {
         return fittest;
     }
 
-    // Gets population size
+    /**
+     * Gets population size.
+     *
+     * @return the size of the population.
+     */
     public int populationSize() {
         return mealList.length;
     }

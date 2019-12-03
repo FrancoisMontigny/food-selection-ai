@@ -7,6 +7,7 @@ public class GA {
 
     /**
      * Evolves a population over one generation
+     *
      * @param pop the population to evolve.
      * @return the evolved population.
      */
@@ -40,6 +41,7 @@ public class GA {
 
     /**
      * Applies crossover to a set of parents and creates offspring
+     *
      * @param parent1 the first parent.
      * @param parent2 the second parent.
      * @return the child of the two parents.
@@ -70,6 +72,7 @@ public class GA {
 
     /**
      * Mutate a meal by changing a random aliment
+     *
      * @param meal the meal to mutate.
      */
     private static void mutate(Meal meal) {
@@ -81,6 +84,7 @@ public class GA {
 
     /**
      * Selects candidate tour for crossover using tournament method.
+     *
      * @param pop the population to select a Meal from.
      * @return the selected Meal.
      */
