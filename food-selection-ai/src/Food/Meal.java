@@ -31,7 +31,9 @@ public class Meal {
         this.meal = meal;
     }
 
-    // Creates a random individual
+    /**
+     * Creates a random individual
+     */
     public void generateIndividual() {
 
         // Randomly select aliments
@@ -40,26 +42,43 @@ public class Meal {
         }
     }
 
-    // Gets a aliment from the meal
-    public Aliment getAliment(int mealPosition) {
-        return (Aliment) meal.get(mealPosition);
+    /**
+     * Gets an aliment from the meal
+     * @param position the position of the aliment in the meal's list.
+     * @return the retrieved aliment.
+     */
+    public Aliment getAliment(int position) {
+        return meal.get(position);
     }
 
+    /**
+     * Get a random aliment from the meal at the given position.
+     *
+     * @param position the position of the meal to get.
+     * @return the retrieved aliment.
+     */
     public Aliment getRandomAliment(int position) {
         List<Aliment> aliments = Main.alimentlist.get(position % 5);
         int random = rand.nextInt(aliments.size());
         return aliments.get(random);
     }
 
-    // Sets a aliment in a certain position within a meal
-    public void setAliment(int mealPosition, Aliment aliment) {
-        meal.set(mealPosition, aliment);
+    /**
+     * Sets a aliment in a certain position within a meal
+     * @param position the position where to set the aliment.
+     * @param aliment the aliment to set.
+     */
+    public void setAliment(int position, Aliment aliment) {
+        meal.set(position, aliment);
         // If the meals been altered we need to reset the fitness and score
         fitness = 0;
         score = 0;
     }
 
-    // Gets the meals fitness
+    /**
+     * Gets the meal's fitness.
+     * @return the meal's fitness.
+     */
     public double getFitness() {
         if (fitness == 0) {
             fitness = 1 / (double) getScore();
@@ -67,7 +86,10 @@ public class Meal {
         return fitness;
     }
 
-    // Gets the total score of the meal
+    /**
+     * Gets the total score of the meal.
+     * @return the total score of the meal.
+     */
     public int getScore() {
         if (score == 0) {
             double totalEnergy = 0;
@@ -144,21 +166,19 @@ public class Meal {
         return score;
     }
 
-    // Get number of aliments on our meal
+    /**
+     * Gets number of aliments in our meal
+     * @return the number of aliments in our meal.
+     */
     public int mealSize() {
         return meal.size();
-    }
-
-    // Check if the meal contains a aliment
-    public boolean containsAliment(Aliment aliment) {
-        return meal.contains(aliment);
     }
 
     @Override
     public String toString() {
         StringBuilder geneString = new StringBuilder("Recommended meal :");
         for (int i = 0; i < mealSize(); i++) {
-            geneString.append(" --> ").append(getAliment(i).getFoodGroup()).append(" : ").append(getAliment(i).getDescription());
+            geneString.append("\n--> ").append(getAliment(i).getFoodGroup()).append(" : ").append(getAliment(i).getDescription());
         }
         return geneString.toString();
     }
